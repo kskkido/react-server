@@ -1,9 +1,11 @@
 const { root } = require('../'),
-      { join } = require('path')
+      { join } = require('path'),
+      nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   entry: join(root, `/server/index.js`),
   target: 'node',
+  externals: [nodeExternals()],
   output: {
     path: join(root, 'app/server'),
     filename: 'bundle.js',
